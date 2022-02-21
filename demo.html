@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Promise WorkShop is Done</h1>
+    <h3>..Go to Inspect for CheckOut..</h3>
+
+    <script>
+        let p = new Promise((resolve, reject) => {
+            fetch('https://api.seatgeek.com/2/events?q=amway-center&client_id=MTI3NjI2NjF8MTUzNDYxMjQ1MS4zNA')
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (response) {
+                    console.log(response);
+                    resolve("Successful Done!");
+                })
+                .catch((err) => {
+                    reject("Failed!");
+                })
+        })
+        p.then((resolve) => {
+            console.log('The Promise is ' + resolve);
+        }).catch((reject) => {
+            console.log('The Promise is ' + reject);
+        })
+
+
+    </script>
+</body>
+
+</html>
